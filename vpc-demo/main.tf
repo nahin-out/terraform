@@ -50,10 +50,19 @@ resource "aws_internet_gateway" "igw" {
     }  
 }
 
-output "public_ssubnet_id" {
+output "vpc" {
+    value = aws_vpc.nahin.id
+  
+}
+
+output "public_subnet" {
     value = aws_subnet.public.id  
 }
 
-output "private_subnet_id" {
+output "private_subnet" {
     value = aws_subnet.private.id  
+}
+
+output "internet_gateway" {
+    value = aws_internet_gateway.igw.id  
 }
