@@ -61,23 +61,3 @@ resource "aws_route_table_association" "publicRouteTableAssociation" {
     subnet_id = aws_subnet.public.id
     route_table_id = aws_route_table.publicRoutetable.id
 }
-
-output "vpc" {
-    value = aws_vpc.test.id
-}
-
-output "public_subnet" {
-    value = aws_subnet.public.id
-}
-
-output "private_subnet" {
-    value = aws_subnet.private.id
-}
-
-output "internetGateway" {
-    value = aws_internet_gateway.IntGaWay.id
-}
-
-output "route_table" {
-    value = aws_route_table.publicRoutetable.id
-}
