@@ -15,6 +15,8 @@ resource "aws_vpc" "test" {
     cidr_block = var.vpc_cidr
     tags = {
       Name = "test-${terraform.workspace}"
+      Environment = terraform.workspace
+      Type = "custom-vpc"
     } 
 }
 
@@ -25,6 +27,8 @@ resource "aws_subnet" "public" {
     map_public_ip_on_launch = true
     tags = {
       Name = "PublicSubnet-${terraform.workspace}"
+      Environment = terraform.workspace
+      Type = "public"
     }
 }
 
@@ -34,6 +38,8 @@ resource "aws_subnet" "private" {
     availability_zone = var.pvt_avl_zone
     tags = {
       Name = "PrivateSubnet-${terraform.workspace}"
+      Environment = terraform.workspace
+      Type = "private"
     }
 }
 
@@ -41,6 +47,8 @@ resource "aws_internet_gateway" "IntGaWay" {
     vpc_id = aws_vpc.test.id
     tags = {
       Name = "IntGateway-${terraform.workspace}"
+      Environment = terraform.workspace
+      Type = "igway"
     }  
 }
 
@@ -54,6 +62,8 @@ resource "aws_route_table" "publicRoutetable" {
 
     tags = {
       Name = "PublicIntGateway-${terraform.workspace}"
+      Environment = terraform.workspace
+      Type = "public"
     }  
 }
 
