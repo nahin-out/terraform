@@ -6,6 +6,9 @@ resource "aws_vpc" "test" {
         Name = "test-vpc"
     }
 }
+data "aws_availability_zones" "available" {
+    state = "available"
+}
 
 resource "aws_subnet" "public" {
     count = length(var.public_subnet)

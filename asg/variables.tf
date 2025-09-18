@@ -33,3 +33,9 @@ variable "ami_id" {
   type        = string
   default     = "ami-0a71a0b9c988d5e5e"
 }
+
+variable "my_ip" {
+  description = "Your IP address for SSH access"
+  type        = string
+  default     = "27.147.191.231/32"
+}

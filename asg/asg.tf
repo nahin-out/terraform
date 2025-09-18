@@ -1,6 +1,6 @@
 resource "aws_launch_template" "app_launch_template" {
     name_prefix   = "app-launch-template"
-    image_id      = data.aws_ami.ubuntu.id
+    image_id      = var.ami_id
     instance_type = var.instance_type
     vpc_security_group_ids = [aws_security_group.ec2-sg.id]
 
